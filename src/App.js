@@ -4,14 +4,14 @@ import { useRef, useState, useEffect } from 'react';
 
 function App() {
 	const data = [
-		{ title: '111', subTitle: '111', pic: 'pic1.jpg' },
-		{ title: '222', subTitle: '222', pic: 'pic2.jpg' },
-		{ title: '333', subTitle: '333', pic: 'pic3.jpg' },
-		{ title: '444', subTitle: '444', pic: 'pic4.jpg' },
-		{ title: '555', subTitle: '555', pic: 'pic5.jpg' },
-		{ title: '666', subTitle: '666', pic: 'pic6.jpg' },
-		{ title: '777', subTitle: '777', pic: 'pic7.jpg' },
-		{ title: '888', subTitle: '888', pic: 'pic8.jpg' },
+		{ title: 'EMERALD', subTitle: 'DEEP GREEN', pic: 'pic1.jpg' },
+		{ title: 'ORANGE', subTitle: 'SUNST BEACH', pic: 'pic2.jpg' },
+		{ title: 'VIVID', subTitle: 'FOREST', pic: 'pic3.jpg' },
+		{ title: 'CALM', subTitle: 'DESERT', pic: 'pic4.jpg' },
+		{ title: 'SILVER', subTitle: 'SHALLOWS', pic: 'pic5.jpg' },
+		{ title: 'PURPLE', subTitle: 'CABIN', pic: 'pic6.jpg' },
+		{ title: 'GRAY', subTitle: 'LABORATORY', pic: 'pic7.jpg' },
+		{ title: 'ORCHID', subTitle: 'MIDTOWN', pic: 'pic8.jpg' },
 	]
 	const path = process.env.PUBLIC_URL;
 	const len = 8;

@@ -1,4 +1,5 @@
 @import 'reset';
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
 
 $initPos: 45%;
 $wid: 300px;
@@ -27,11 +28,14 @@ main {
       border-radius: 15px;
       box-shadow: 10px 10px 20px rgba(0,0,0,.5);
       overflow: hidden;
+      transition: 1s;
 
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        filter: brightness(1);
+        transition: 1s;
       }
 
       .txtActive {
@@ -43,8 +47,8 @@ main {
         
 
         .upper, .lower {
-          width: 100%;
-          height: 100px;
+          width: 1000px;
+          height: 120px;
           overflow: hidden;
           position: relative;
           //border: 1px solid red;
@@ -53,10 +57,18 @@ main {
             font-size: 100px;
             color: #fff;
             position: absolute;
-            bottom: -100px;
-            left: 0px;
-            transition: 0.5s 1s;
+            bottom: -120px;
+            left: 0px;  
+            opacity: 0;  
+            font-family: 'roboto condensed';  
+            transform: scaleY(1.2);     
           }
+        }
+        .upper p {
+          transition: bottom 0.5s 1s, opacity 0.5s;
+        }
+        .lower p {
+          transition: bottom 0.5s 1.2s, opacity 0.5s;
         }
       
       }    
@@ -85,7 +97,7 @@ main {
       width: 100%;
       height: 100%;
       padding: 0px;
-      opacity: 0.5;
+      opacity: 1;
       top: 0;
       z-index: 2;
 
@@ -120,12 +132,17 @@ main {
     } 
   }
 
+  //패널 활성화 모션
   .list li.on {
     .inner {
+      img {
+        filter: brightness(0.5);
+      }
       .txtActive {
         .upper, .lower {
           p {
             bottom: 0px;
+            opacity: 1;
           }
         }
       }
