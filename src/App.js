@@ -42,8 +42,10 @@ function App() {
 		<main>
 			<ul ref={list} className='list'>
 				{Array(len).fill().map((item, idx) => {
+					let activeClass = '';
+					Active === idx && (activeClass = 'on')
 					return (
-						<li key={idx} >
+						<li key={idx} className={activeClass} >
 							<div className='inner'>
 								<img src={`${path}/img/pic${idx + 1}.jpg`} alt={idx} />
 								<div className="txt">{idx + 1}</div>
