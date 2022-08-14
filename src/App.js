@@ -3,6 +3,7 @@ import './scss/style.scss';
 import { useRef, useState, useEffect } from 'react';
 
 function App() {
+	const len = 8;
 	const list = useRef(null);
 	let [Active, setActive] = useState(0);
 
@@ -11,7 +12,7 @@ function App() {
 		list.current.append(firstEl);
 
 		setActive((Acitve) =>
-			Acitve === 0 ? (7 - 1) : --Active
+			Acitve === 0 ? (len - 1) : --Active
 		);
 	}
 
@@ -20,7 +21,7 @@ function App() {
 		list.current.prepend(lastEl);
 
 		setActive((Acitve) =>
-			Acitve === 7 - 1 ? (Acitve = 0) : ++Active
+			Acitve === len - 1 ? (Acitve = 0) : ++Active
 		);
 	}
 
@@ -31,7 +32,7 @@ function App() {
 	return (
 		<main>
 			<ul ref={list} className='list'>
-				{Array(7).fill().map((item, idx) => {
+				{Array(len).fill().map((item, idx) => {
 					return (
 						<li key={idx} >
 							<div className='inner'>
