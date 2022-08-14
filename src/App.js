@@ -1,6 +1,6 @@
 import './scss/style.scss';
 import Anime from './asset/Anime';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 function App() {
 	const list = useRef(null);
