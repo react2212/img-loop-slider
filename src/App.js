@@ -1,20 +1,33 @@
 import './scss/style.scss';
-import Anime from './asset/Anime';
+//import Anime from './asset/Anime';
 import { useRef, useState, useEffect } from 'react';
 
 function App() {
 	const list = useRef(null);
+	let [Active, setActive] = useState(0);
 
 	const next = () => {
 		const firstEl = list.current.firstElementChild;
-		console.log(firstEl);
-		list.current.append(firstEl)
+		list.current.append(firstEl);
+
+		setActive((Acitve) =>
+			Acitve === 0 ? (7 - 1) : --Active
+		);
 	}
 
 	const prev = () => {
 		const lastEl = list.current.lastElementChild;
 		list.current.prepend(lastEl);
+
+		setActive((Acitve) =>
+			Acitve === 7 - 1 ? (Acitve = 0) : ++Active
+		);
 	}
+
+	useEffect(() => {
+		console.log(Active);
+	}, [Active])
+
 	return (
 		<main>
 			<ul ref={list} className='list'>
@@ -22,7 +35,7 @@ function App() {
 					return (
 						<li key={idx} >
 							<div className='inner'>
-								<img src={`${process.env.PUBLIC_URL}/img/pic${idx + 1}.jpg`} />
+								<img src={`${process.env.PUBLIC_URL}/img/pic${idx + 1}.jpg`} alt={idx} />
 							</div>
 						</li>
 					)
