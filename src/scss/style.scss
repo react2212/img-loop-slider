@@ -2,7 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Teko:wght@500&display=swap');
 
 $initPos: 40%;
-$wid: 270px;
+$wid: 15vw;
+$ht: 40vh;
+$fontSize: 8vw;
 
 main {
 	width: 100%;
@@ -62,7 +64,7 @@ main {
 	.list {
 		li {
 			width: $wid;
-			height: 400px;
+			height: $ht;
 			position: fixed;
 			top: 40%;
 			transition: 1s;
@@ -95,6 +97,7 @@ main {
 					top: 35%;
 					left: 5vw;
 					opacity: 1;
+					padding-right: 30px;
 
 					h2 {
 						span {
@@ -121,21 +124,24 @@ main {
 					.upper,
 					.lower {
 						width: 1000px;
-						height: 120px;
+						height: $fontSize;
 						overflow: hidden;
 						position: relative;
+						font-size: 0;
 
 						p {
-							font-size: 120px;
+							font-size: $fontSize;
 							color: #fff;
 							position: absolute;
-							bottom: -120px;
+							bottom: -$fontSize;
 							left: 0px;
 							opacity: 0;
 							font-family: 'teko';
-							line-height: 0.8;
-							transform: scaleY(1.2);
+							line-height: 1;
 						}
+					}
+					.lower {
+						transform: translateY(-20px);
 					}
 					.upper p {
 						transition: bottom 0.5s 1s, opacity 0.5s;
@@ -147,7 +153,6 @@ main {
 						font: 14px/1.4 'arial';
 						color: #bbb;
 						opacity: 0.5;
-						margin-top: 20px;
 						margin-bottom: 40px;
 						opacity: 0;
 						transform: translateY(100px);
@@ -320,7 +325,7 @@ main {
 		width: calc(60% - 60px);
 		position: absolute;
 		left: 40%;
-		top: calc(40% + 420px);
+		top: calc(40% + 40vh + 20px);
 		z-index: 3;
 		padding-left: 20px;
 
@@ -518,5 +523,224 @@ main {
 	100% {
 		transform: scale(1);
 		opacity: 0.5;
+	}
+}
+
+@media screen and (max-width: 1279px) {
+	main {
+		.list li .inner {
+			border-radius: 10px;
+
+			.txtThumb {
+				bottom: 30px;
+				p {
+					font-size: 20px;
+				}
+			}
+		}
+
+		.navi {
+			transform-origin: right top;
+			transform: scale(0.8);
+		}
+	}
+}
+
+@media screen and (max-width: 979px) {
+	$initPos: 45%;
+	$wid: 20vw;
+
+	main {
+		header {
+			.gnb {
+				display: none;
+			}
+		}
+		.list li {
+			width: $wid;
+			&:nth-of-type(3) {
+				left: calc($initPos + $wid * 0);
+				transition-delay: 0s;
+			}
+			&:nth-of-type(4) {
+				left: calc($initPos + $wid * 1);
+				transition-delay: 0.1s;
+			}
+			&:nth-of-type(5) {
+				left: calc($initPos + $wid * 2);
+				transition-delay: 0.2s;
+			}
+			&:nth-of-type(6) {
+				left: calc($initPos + $wid * 3);
+				transition-delay: 0.3s;
+			}
+			&:nth-of-type(7) {
+				left: calc($initPos + $wid * 4);
+				transition-delay: 0.4s;
+			}
+			&:nth-of-type(8) {
+				left: calc($initPos + $wid * 5);
+				transition-delay: 0.5s;
+			}
+		}
+
+		.navi {
+			transform-origin: right top;
+			transform: scale(0.5);
+		}
+	}
+}
+
+@media screen and (max-width: 739px) {
+	$initPos: 45%;
+	$wid: 30vw;
+
+	main {
+		.list li {
+			width: $wid;
+			&:nth-of-type(3) {
+				left: calc($initPos + $wid * 0);
+				transition-delay: 0s;
+			}
+			&:nth-of-type(4) {
+				left: calc($initPos + $wid * 1);
+				transition-delay: 0.1s;
+			}
+			&:nth-of-type(5) {
+				left: calc($initPos + $wid * 2);
+				transition-delay: 0.2s;
+			}
+			&:nth-of-type(6) {
+				left: calc($initPos + $wid * 3);
+				transition-delay: 0.3s;
+			}
+			&:nth-of-type(7) {
+				left: calc($initPos + $wid * 4);
+				transition-delay: 0.4s;
+			}
+			&:nth-of-type(8) {
+				left: calc($initPos + $wid * 5);
+				transition-delay: 0.5s;
+			}
+		}
+
+		.list li.on {
+			.inner {
+				.txtActive {
+					.lower {
+						transform: translateY(0px);
+					}
+					.desc {
+						display: none;
+					}
+
+					nav {
+						justify-content: flex-start;
+						margin-top: 20px;
+						button {
+							width: 120px;
+							margin-left: 20px;
+						}
+					}
+				}
+			}
+		}
+
+		.navi {
+			transform-origin: right top;
+			transform: scale(0.8);
+		}
+	}
+}
+
+@media screen and (max-width: 539px) {
+	$initPos: 20px;
+	$wid: 50vw;
+
+	main {
+		header h1 {
+			padding-left: 20px;
+		}
+		//리스트 순서에 따른 모양
+		.list li {
+			width: $wid;
+			height: 200px;
+			top: 55%;
+			&:nth-of-type(3) {
+				left: calc($initPos + $wid * 0);
+				transition-delay: 0s;
+			}
+			&:nth-of-type(4) {
+				left: calc($initPos + $wid * 1);
+				transition-delay: 0.1s;
+			}
+			&:nth-of-type(5) {
+				left: calc($initPos + $wid * 2);
+				transition-delay: 0.2s;
+			}
+			&:nth-of-type(6) {
+				left: calc($initPos + $wid * 3);
+				transition-delay: 0.3s;
+			}
+			&:nth-of-type(7) {
+				left: calc($initPos + $wid * 4);
+				transition-delay: 0.4s;
+			}
+			&:nth-of-type(8) {
+				left: calc($initPos + $wid * 5);
+				transition-delay: 0.5s;
+			}
+		}
+
+		.list li {
+			.inner {
+				.txtActive {
+					top: 15%;
+					left: 40px;
+					.upper,
+					.lower {
+						height: 20vw;
+						transform: translateY(0px);
+
+						p {
+							font-size: 20vw;
+							bottom: -20vw;
+						}
+					}
+				}
+			}
+		}
+
+		.list li.on {
+			.inner {
+				.txtActive {
+					.lower {
+						transform: translateY(0px);
+					}
+					.desc {
+						display: none;
+					}
+
+					nav {
+						justify-content: flex-start;
+						margin-top: 20px;
+						p {
+							display: none;
+						}
+						button {
+							width: 120px;
+							margin-left: 0px;
+						}
+					}
+				}
+			}
+		}
+
+		.navi {
+			width: 80%;
+			left: 10%;
+			transform-origin: right top;
+			transform: scale(0.6);
+		}
 	}
 }

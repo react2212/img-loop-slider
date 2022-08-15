@@ -68,7 +68,7 @@ function App() {
 				<h1>DCODELAB</h1>
 
 				<nav>
-					<ul>
+					<ul className='gnb'>
 						<li>ABOOUT</li>
 						<li>COMPANY</li>
 						<li>TRAVEL</li>
