@@ -707,6 +707,11 @@ main {
 							bottom: -20vw;
 						}
 					}
+					nav {
+						p {
+							display: none;
+						}
+					}
 				}
 			}
 		}
@@ -732,6 +737,9 @@ main {
 							margin-left: 0px;
 						}
 					}
+				}
+				.txtThumb {
+					bottom: 20px;
 				}
 			}
 		}
