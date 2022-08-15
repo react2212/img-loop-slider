@@ -664,7 +664,7 @@ main {
 		//리스트 순서에 따른 모양
 		.list li {
 			width: $wid;
-			height: 200px;
+			height: 160px;
 			top: 60%;
 			&:nth-of-type(3) {
 				left: calc($initPos + $wid * 0);
@@ -740,7 +740,7 @@ main {
 			width: 80%;
 			left: 10%;
 			top: auto;
-			bottom: 30px;
+			bottom: 10px;
 			transform-origin: right top;
 			transform: scale(0.6);
 		}
