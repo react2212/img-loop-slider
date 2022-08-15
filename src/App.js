@@ -2,6 +2,8 @@ import './scss/style.scss';
 import { useRef, useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
 	const data = [
@@ -42,7 +44,7 @@ function App() {
 
 		setTimeout(() => {
 			prevEl.current.classList.remove('on');
-		}, 500);
+		}, 1000);
 
 		setActive((Acitve) => (Acitve === 0 ? len - 1 : --Active));
 	};
@@ -62,6 +64,28 @@ function App() {
 
 	return (
 		<main>
+			<header>
+				<h1>DCODELAB</h1>
+
+				<nav>
+					<ul>
+						<li>ABOOUT</li>
+						<li>COMPANY</li>
+						<li>TRAVEL</li>
+						<li>RESERVATION</li>
+						<li>CONTACT</li>
+					</ul>
+
+					<ul className='sns'>
+						<li>
+							<FontAwesomeIcon icon={faMagnifyingGlass} />
+						</li>
+						<li>
+							<FontAwesomeIcon icon={faEnvelope} />
+						</li>
+					</ul>
+				</nav>
+			</header>
 			<p className='notice'>
 				What's the Hurry?
 				<br />
