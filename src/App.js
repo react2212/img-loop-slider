@@ -55,7 +55,7 @@ function App() {
 	}, []);
 
 	useEffect(() => {
-		console.log(Active);
+		//console.log(Active);
 		counter.current.classList.add('on');
 		setTimeout(() => {
 			counter.current.classList.remove('on');
