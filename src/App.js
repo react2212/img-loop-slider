@@ -25,8 +25,6 @@ function App() {
 		setActive((Acitve) =>
 			Acitve === len - 1 ? (Acitve = 0) : ++Active
 		);
-
-
 	}
 
 	const prev = () => {
@@ -38,7 +36,6 @@ function App() {
 		);
 	}
 
-	//컴포넌트 처음 마운트시 제일 마지막 패널을 첫번째로 보내서 화면상에 1번 패널이 활성화되게 처리
 	useEffect(() => {
 		const lastEl = list.current.lastElementChild;
 		list.current.prepend(lastEl);
@@ -58,9 +55,14 @@ function App() {
 						<li key={idx} className={activeClass} >
 							<div className='inner'>
 								<img src={`${path}/img/${item.pic}`} alt={idx} />
+
 								<div className="txtActive">
 									<div className="upper"><p>{item.title}</p></div>
 									<div className="lower"><p>{item.subTitle}</p></div>
+								</div>
+
+								<div className="txtThumb">
+									<p>{item.title}<br />{item.subTitle}</p>
 								</div>
 							</div>
 						</li>
