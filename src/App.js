@@ -1,26 +1,34 @@
 import './scss/style.scss';
-//import Anime from './asset/Anime';
 import { useRef, useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
 	const data = [
-		{ title: 'EMERALD', subTitle: 'DEEP GREEN', pic: 'pic1.jpg' },
-		{ title: 'ORANGE', subTitle: 'SUNST BEACH', pic: 'pic2.jpg' },
-		{ title: 'VIVID', subTitle: 'FOREST', pic: 'pic3.jpg' },
-		{ title: 'CALM', subTitle: 'DESERT', pic: 'pic4.jpg' },
-		{ title: 'SILVER', subTitle: 'SHALLOWS', pic: 'pic5.jpg' },
-		{ title: 'PURPLE', subTitle: 'CABIN', pic: 'pic6.jpg' },
-		{ title: 'GRAY', subTitle: 'LABORATORY', pic: 'pic7.jpg' },
-		{ title: 'ORCHID', subTitle: 'MIDTOWN', pic: 'pic8.jpg' },
+		{ title: 'WOODED', subTitle: 'CALM VALLEY', pic: 'pic1.jpg' },
+		{ title: 'SERENE', subTitle: 'WIDE PLAINS', pic: 'pic2.jpg' },
+		{ title: 'FOGGY', subTitle: 'CALM LAKE', pic: 'pic3.jpg' },
+		{ title: 'QUIET', subTitle: 'ROADSIDE ', pic: 'pic4.jpg' },
+		{ title: 'WINDY', subTitle: 'MOUNTAIN', pic: 'pic5.jpg' },
+		{ title: 'DIMMED', subTitle: 'LANDSCAPE', pic: 'pic6.jpg' },
+		{ title: 'SUNSET', subTitle: 'GRASSLAND', pic: 'pic7.jpg' },
+		{ title: 'LAPPING', subTitle: 'SEA WAVES', pic: 'pic8.jpg' },
 	];
 	const path = process.env.PUBLIC_URL;
 	const len = 8;
 	const list = useRef(null);
+	const prevEl = useRef(null);
+	const nextEl = useRef(null);
 	let [Active, setActive] = useState(0);
 
-	const next = () => {
+	const next = (e) => {
 		const firstEl = list.current.firstElementChild;
 		list.current.append(firstEl);
+		nextEl.current.classList.add('on');
+
+		setTimeout(() => {
+			nextEl.current.classList.remove('on');
+		}, 500);
 
 		setActive((Acitve) => (Acitve === len - 1 ? (Acitve = 0) : ++Active));
 	};
@@ -28,6 +36,12 @@ function App() {
 	const prev = () => {
 		const lastEl = list.current.lastElementChild;
 		list.current.prepend(lastEl);
+
+		prevEl.current.classList.add('on');
+
+		setTimeout(() => {
+			prevEl.current.classList.remove('on');
+		}, 500);
 
 		setActive((Acitve) => (Acitve === 0 ? len - 1 : --Active));
 	};
@@ -43,6 +57,11 @@ function App() {
 
 	return (
 		<main>
+			<p className='notice'>
+				What's the Hurry?
+				<br />
+				Calm Down..
+			</p>
 			<ul ref={list} className='list'>
 				{data.map((item, idx) => {
 					let activeClass = '';
@@ -53,12 +72,29 @@ function App() {
 								<img src={`${path}/img/${item.pic}`} alt={idx} />
 
 								<div className='txtActive'>
+									<h2>
+										<span>
+											{item.title} {item.subTitle}
+										</span>
+									</h2>
 									<div className='upper'>
 										<p>{item.title}</p>
 									</div>
 									<div className='lower'>
 										<p>{item.subTitle}</p>
 									</div>
+
+									<p className='desc'>
+										Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi explicabo esse
+										suscipit non. molestiae dignissimos sit amet consectetur.
+									</p>
+
+									<nav>
+										<p>
+											<FontAwesomeIcon icon={faBookmark} />
+										</p>
+										<button>VIEW DETAILS</button>
+									</nav>
 								</div>
 
 								<div className='txtThumb'>
@@ -74,12 +110,14 @@ function App() {
 				})}
 			</ul>
 
-			<button className='prev' onClick={prev}>
-				prev
-			</button>
-			<button className='next' onClick={next}>
-				next
-			</button>
+			<nav className='navi'>
+				<p className='prev' onClick={prev} ref={prevEl}>
+					<span></span>
+				</p>
+				<p className='next' onClick={next} ref={nextEl}>
+					<span></span>
+				</p>
+			</nav>
 		</main>
 	);
 }
