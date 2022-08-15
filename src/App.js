@@ -12,7 +12,7 @@ function App() {
 		{ title: 'PURPLE', subTitle: 'CABIN', pic: 'pic6.jpg' },
 		{ title: 'GRAY', subTitle: 'LABORATORY', pic: 'pic7.jpg' },
 		{ title: 'ORCHID', subTitle: 'MIDTOWN', pic: 'pic8.jpg' },
-	]
+	];
 	const path = process.env.PUBLIC_URL;
 	const len = 8;
 	const list = useRef(null);
@@ -22,56 +22,64 @@ function App() {
 		const firstEl = list.current.firstElementChild;
 		list.current.append(firstEl);
 
-		setActive((Acitve) =>
-			Acitve === len - 1 ? (Acitve = 0) : ++Active
-		);
-	}
+		setActive((Acitve) => (Acitve === len - 1 ? (Acitve = 0) : ++Active));
+	};
 
 	const prev = () => {
 		const lastEl = list.current.lastElementChild;
 		list.current.prepend(lastEl);
 
-		setActive((Acitve) =>
-			Acitve === 0 ? (len - 1) : --Active
-		);
-	}
+		setActive((Acitve) => (Acitve === 0 ? len - 1 : --Active));
+	};
 
 	useEffect(() => {
 		const lastEl = list.current.lastElementChild;
 		list.current.prepend(lastEl);
-	}, [])
+	}, []);
 
 	useEffect(() => {
 		console.log(Active);
-	}, [Active])
+	}, [Active]);
 
 	return (
 		<main>
 			<ul ref={list} className='list'>
 				{data.map((item, idx) => {
 					let activeClass = '';
-					Active === idx && (activeClass = 'on')
+					Active === idx && (activeClass = 'on');
 					return (
-						<li key={idx} className={activeClass} >
+						<li key={idx} className={activeClass}>
 							<div className='inner'>
 								<img src={`${path}/img/${item.pic}`} alt={idx} />
 
-								<div className="txtActive">
-									<div className="upper"><p>{item.title}</p></div>
-									<div className="lower"><p>{item.subTitle}</p></div>
+								<div className='txtActive'>
+									<div className='upper'>
+										<p>{item.title}</p>
+									</div>
+									<div className='lower'>
+										<p>{item.subTitle}</p>
+									</div>
 								</div>
 
-								<div className="txtThumb">
-									<p>{item.title}<br />{item.subTitle}</p>
+								<div className='txtThumb'>
+									<p>
+										{item.title}
+										<br />
+										{item.subTitle}
+									</p>
 								</div>
 							</div>
 						</li>
-					)
+					);
 				})}
 			</ul>
 
-			<button className="prev" onClick={prev}>prev</button>
-			<button className="next" onClick={next}>next</button>
+			<button className='prev' onClick={prev}>
+				prev
+			</button>
+			<button className='next' onClick={next}>
+				next
+			</button>
 		</main>
 	);
 }
