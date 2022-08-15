@@ -282,7 +282,7 @@ main {
 	}
 
 	.navi {
-		width: 50%;
+		width: calc(60% - 60px);
 		position: absolute;
 		left: 40%;
 		top: calc(40% + 420px);
@@ -363,6 +363,51 @@ main {
 				}
 			}
 		}
+
+		.bar {
+			width: calc(100% - 350px);
+			height: 4px;
+			border-radius: 2px;
+			overflow: hidden;
+			background: rgba(255, 255, 255, 0.2);
+			position: absolute;
+			bottom: 50%;
+			left: 250px;
+
+			&::after {
+				content: '';
+				display: block;
+				width: calc(100% / 8);
+				height: 100%;
+				border-radius: 2px;
+				background: orange;
+				position: absolute;
+				top: 0;
+				left: 0;
+				transition: 0.5s cubic-bezier(0.69, -1.07, 0.38, 1.98);
+			}
+
+			@for $i from 1 through 8 {
+				&.move#{$i} {
+					&::after {
+						width: calc(100% / 8 * $i);
+					}
+				}
+			}
+		}
+
+		h3 {
+			position: absolute;
+			top: 0;
+			right: 0;
+			font: normal 80px/1 'teko';
+			color: #fff;
+			opacity: 0.5;
+
+			&.on {
+				animation: counter 0.5s ease 1;
+			}
+		}
 	}
 }
 
@@ -423,5 +468,20 @@ main {
 		left: 25px;
 		width: 20px;
 		opacity: 1;
+	}
+}
+
+@keyframes counter {
+	0% {
+		transform: scale(1);
+		opacity: 0.5;
+	}
+	50% {
+		transform: scale(1.2);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 0.5;
 	}
 }

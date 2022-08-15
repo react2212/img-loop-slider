@@ -19,6 +19,7 @@ function App() {
 	const list = useRef(null);
 	const prevEl = useRef(null);
 	const nextEl = useRef(null);
+	const counter = useRef(null);
 	let [Active, setActive] = useState(0);
 
 	const next = (e) => {
@@ -53,6 +54,10 @@ function App() {
 
 	useEffect(() => {
 		console.log(Active);
+		counter.current.classList.add('on');
+		setTimeout(() => {
+			counter.current.classList.remove('on');
+		}, 500);
 	}, [Active]);
 
 	return (
@@ -117,6 +122,10 @@ function App() {
 				<p className='next' onClick={next} ref={nextEl}>
 					<span></span>
 				</p>
+
+				<div className={`bar move${Active + 1}`}></div>
+
+				<h3 ref={counter}>{'0' + (Active + 1)}</h3>
 			</nav>
 		</main>
 	);
