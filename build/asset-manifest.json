@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react_loop_img_slider/static/css/main.b340943d.css",
+    "main.js": "/react_loop_img_slider/static/js/main.ba1ecff4.js",
+    "index.html": "/react_loop_img_slider/index.html",
+    "main.b340943d.css.map": "/react_loop_img_slider/static/css/main.b340943d.css.map",
+    "main.ba1ecff4.js.map": "/react_loop_img_slider/static/js/main.ba1ecff4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b340943d.css",
+    "static/js/main.ba1ecff4.js"
+  ]
+}

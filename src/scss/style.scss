@@ -665,7 +665,7 @@ main {
 		.list li {
 			width: $wid;
 			height: 200px;
-			top: 55%;
+			top: 60%;
 			&:nth-of-type(3) {
 				left: calc($initPos + $wid * 0);
 				transition-delay: 0s;
@@ -715,7 +715,7 @@ main {
 			.inner {
 				.txtActive {
 					.lower {
-						transform: translateY(0px);
+						transform: translateY(-10px);
 					}
 					.desc {
 						display: none;
@@ -723,7 +723,7 @@ main {
 
 					nav {
 						justify-content: flex-start;
-						margin-top: 20px;
+						margin-top: 10px;
 						p {
 							display: none;
 						}
@@ -739,6 +739,8 @@ main {
 		.navi {
 			width: 80%;
 			left: 10%;
+			top: auto;
+			bottom: 30px;
 			transform-origin: right top;
 			transform: scale(0.6);
 		}
