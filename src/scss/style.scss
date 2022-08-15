@@ -289,7 +289,9 @@ main {
 		z-index: 3;
 		padding-left: 20px;
 
-		.prev {
+		//좌우버튼 공통 스타일 (호버포하)
+		.prev,
+		.next {
 			display: inline-block;
 			width: 70px;
 			height: 70px;
@@ -307,78 +309,58 @@ main {
 				height: 2px;
 				background: #fff;
 				position: absolute;
+			}
+			&::before {
+				top: 49%;
+				transform: rotate(45deg) translateX(0px);
+			}
+			&::after {
+				bottom: 49%;
+				transform: rotate(-45deg) translateX(0px);
+			}
+			span {
+				width: 20px;
+				height: 2px;
+				background: #fff;
+				position: absolute;
+				top: 49%;
+				opacity: 1;
+			}
+
+			&.on {
+				animation: wrap 0.3s 1;
+			}
+		}
+
+		//좌우버튼 방향에따른 스타일 변경 (호버포함)
+		.prev {
+			&::before,
+			&::after {
 				left: 25px;
 				transform-origin: left center;
 			}
-			&::before {
-				top: 49%;
-				transform: rotate(45deg) translateX(0px);
-			}
-			&::after {
-				bottom: 49%;
-				transform: rotate(-45deg) translateX(0px);
-			}
 			span {
-				width: 20px;
-				height: 2px;
-				background: #fff;
-				position: absolute;
-				top: 49%;
 				left: 25px;
-				opacity: 1;
+			}
+			&.on {
+				span {
+					animation: middlePrev 0.5s 1;
+				}
 			}
 		}
-
-		.prev.on {
-			animation: wrap 0.3s 1;
-			span {
-				animation: middlePrev 0.5s 1;
-			}
-		}
-
 		.next {
-			display: inline-block;
-			width: 70px;
-			height: 70px;
-			border: 1px solid #bbb;
-			border-radius: 50%;
-			position: relative;
-			cursor: pointer;
-
 			&::before,
 			&::after {
-				content: '';
-				display: block;
-				width: 17px;
-				height: 2px;
-				background: #fff;
-				position: absolute;
 				right: 25px;
 				transform-origin: right center;
 			}
-			&::before {
-				top: 49%;
-				transform: rotate(45deg) translateX(0px);
-			}
-			&::after {
-				bottom: 49%;
-				transform: rotate(-45deg) translateX(0px);
-			}
 			span {
-				width: 20px;
-				height: 2px;
-				background: #fff;
-				position: absolute;
-				top: 49%;
 				right: 25px;
-				opacity: 1;
 			}
-		}
-
-		.next.on {
-			animation: wrap 0.3s 1;
-			span {
-				animation: middleNext 0.5s 1;
+			&.on {
+				span {
+					animation: middleNext 0.5s 1;
+				}
 			}
 		}
 	}
