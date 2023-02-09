@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/img-loop-slider/static/css/main.b7a82d20.css",
+    "main.js": "/img-loop-slider/static/js/main.d19c4832.js",
+    "index.html": "/img-loop-slider/index.html",
+    "main.b7a82d20.css.map": "/img-loop-slider/static/css/main.b7a82d20.css.map",
+    "main.d19c4832.js.map": "/img-loop-slider/static/js/main.d19c4832.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b7a82d20.css",
+    "static/js/main.d19c4832.js"
+  ]
+}
